@@ -12,7 +12,7 @@ export const zodRegisterSchema = z.object({
       .max(16, { error: `password should be less than 16 characters` }),
 });
 
-export const zofLoginSchema = z.object({
+export const zodLoginSchema = z.object({
    email: z.email(),
    password: z
       .string()

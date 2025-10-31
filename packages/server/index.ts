@@ -13,10 +13,6 @@ const port = process.env.PORT || 3000;
 
 app.use('/api/v1/auth', authRoutes);
 
-app.get('/', (req: Request, res: Response) => {
-   res.send('Hello world!');
-});
-
 app.listen(port, () => {
    console.log(`server is running on ${port}`);
 });
