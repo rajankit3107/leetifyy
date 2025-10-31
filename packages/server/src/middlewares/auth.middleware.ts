@@ -31,6 +31,7 @@ export const authMiddleware = async (
       let decoded: JwtPayload;
       try {
          decoded = jwt.verify(token, process.env.JWT_SECRET) as JwtPayload;
+         //  console.log(decoded);
       } catch (error) {
          return res.status(401).json({ message: 'Invalid or expired token' });
       }

@@ -132,7 +132,7 @@ export const login = async (req: Request, res: Response) => {
    }
 };
 
-export const logout = async (req: AuthRequest, res: Response) => {
+export const logout = async (req: Request, res: Response) => {
    try {
       res.clearCookie('jwt', {
          httpOnly: true,
@@ -145,5 +145,20 @@ export const logout = async (req: AuthRequest, res: Response) => {
          .json({ success: true, message: `user logged out successfully` });
    } catch (error) {
       console.error(`Error logging out`);
+   }
+};
+
+export const check = async (req: AuthRequest, res: Response) => {
+   try {
+      res.status(200).json({
+         success: true,
+         message: 'user authenticated successfully',
+         user: req.user,
+      });
+   } catch (error) {
+      console.error(`Error checking user`, error);
+      res.status(500).json({
+         error: `Error checking user`,
+      });
    }
 };
