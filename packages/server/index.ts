@@ -1,6 +1,7 @@
 import express, { type Request, type Response } from 'express';
 import dotenv from 'dotenv';
 import CookieParser from 'cookie-parser';
+import authRoutes from './src/routes/auth.routes';
 
 dotenv.config();
 
@@ -9,6 +10,8 @@ app.use(express.json());
 app.use(CookieParser());
 
 const port = process.env.PORT || 3000;
+
+app.use('/api/v1/auth', authRoutes);
 
 app.get('/', (req: Request, res: Response) => {
    res.send('Hello world!');
