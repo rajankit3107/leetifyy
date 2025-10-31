@@ -1,10 +1,12 @@
 import express, { type Request, type Response } from 'express';
 import dotenv from 'dotenv';
+import CookieParser from 'cookie-parser';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(CookieParser());
 
 const port = process.env.PORT || 3000;
 
